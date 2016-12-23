@@ -11,7 +11,7 @@ npm install Collaborne/capped-local-storage --save
 
 Check the included [demo](https://github.com/Collaborne/capped-local-storage/blob/master/demo.html).
 
-~~~~
+```javascript
 var storage = require('capped-local-storage');
 
 var key = 'FOO';
@@ -33,4 +33,4 @@ storage.save(key, value).then(function() {
 }).then(function(readValue) {
     console.log('Step 6: Got "' + readValue + '"');
 });
-~~~~
+```
