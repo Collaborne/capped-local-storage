@@ -4,7 +4,7 @@ Local storage access layer that allows to remove the oldest entries
 ## Install
 
 ~~~~
-npm install Collaborne/capped-local-storage --save
+npm install capped-local-storage --save
 ~~~~
 
 ## Usage
