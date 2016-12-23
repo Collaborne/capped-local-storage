@@ -33,6 +33,7 @@
   "author": "Collaborne <info@collaborne.com>",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
     "browserify": "~11.1.0",
     "eslint": "^2.13.1",
