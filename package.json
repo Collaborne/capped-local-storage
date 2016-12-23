@@ -1,6 +1,6 @@
 {
   "name": "capped-local-storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Local storage access layer that allows to remove the oldest entries",
   "keywords": [
     "local",
