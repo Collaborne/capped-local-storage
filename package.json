@@ -19,8 +19,8 @@
   },
   "main": "./lib/index.js",
   "scripts": {
-    "lint": "eslint .",
     "compile": "babel --presets es2015 -d lib/ src/",
+    "lint": "eslint lib",
     "build": "npm run build-dist && npm run build-min",
     "build-dist": "mkdir -p dist && browserify -r $npm_package_main:capped-local-storage > dist/capped-local-storage.js",
     "build-min": "uglifyjs dist/capped-local-storage.js --comments -o dist/capped-local-storage.min.js",
