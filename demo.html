@@ -10,21 +10,49 @@
                 var key = 'FOO';
                 var value = 'BAR';
 
-                storage.save(key, value).then(function() {
-                    console.log('Step 1: Successfully saved ' + key);
-                }).then(function() {
-                    console.log('Step 2: Reading value for ' + key + '...');
-                    return storage.get(key);
-                }).then(function(readValue) {
-                    console.log('Step 3: Got "' + readValue + '"');
-                }).then(function(readValue) {
-                    console.log('Step 4: Pruning all values...');
-                    return storage.prune([], 0);
-                }).then(function() {
-                    console.log('Step 5: Reading value for ' + key + '...');
-                    return storage.get(key);
-                }).then(function(readValue) {
-                    console.log('Step 6: Got "' + readValue + '"');
+                const demoPruning = function() {
+                    return storage.save(key, value).then(function() {
+                        console.log('Step 1: Successfully saved ' + key + ' with value ' + value);
+                    }).then(function() {
+                        console.log('Step 2: Reading value for ' + key + '...');
+                        return storage.get(key);
+                    }).then(function(readValue) {
+                        console.log('Step 3: Got "' + readValue + '"');
+                    }).then(function(readValue) {
+                        console.log('Step 4: Pruning all values...');
+                        return storage.prune([], 0);
+                    }).then(function() {
+                        console.log('Step 5: Reading value for ' + key + '...');
+                        return storage.get(key);
+                    }).then(function(readValue) {
+                        console.log('Step 6: Got "' + readValue + '"');
+                    });
+                };
+
+                const demoDeleting = function() {
+                    return storage.save(key, value).then(function() {
+                        console.log('Step 1: Successfully saved ' + key + ' with value ' + value);
+                    }).then(function() {
+                        console.log('Step 2: Reading value for ' + key + '...');
+                        return storage.get(key);
+                    }).then(function(readValue) {
+                        console.log('Step 3: Got "' + readValue + '"');
+                    }).then(function(readValue) {
+                        console.log('Step 4: Removing value...');
+                        return storage.remove(key);
+                    }).then(function() {
+                        console.log('Step 5: Reading value for ' + key + '...');
+                        return storage.get(key);
+                    }).then(function(readValue) {
+                        console.log('Step 6: Got "' + readValue + '"');
+                    });
+                };
+
+                console.log('Pruning values');
+                demoPruning().then(function() {
+                    console.log('----------------------');
+                    console.log('Deleting a value');
+                    demoDeleting();
                 });
             });
         </script>

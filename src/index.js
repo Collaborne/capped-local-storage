@@ -48,6 +48,25 @@ const save = (key, data) => {
 	return Promise.resolve();
 };
 
+const remove = (key) => {
+	if (!window.localStorage) {
+		// Ignore caching if local storage is not available
+		return Promise.resolve();
+	}
+	if (!key) {
+		// Can't remove anything without a key
+		return Promise.resolve();
+	}
+
+	try {
+		window.localStorage.removeItem(key);
+	} catch (e) {
+		return Promise.reject(e);
+	}
+
+	return Promise.resolve();
+};
+
 /**
  * Removes all old entries in local cache to avoid it overflowing
  *
@@ -113,5 +132,6 @@ const prune = (preservedKeys = [], maxEntriesInLocalStorage = 50) => {
 module.exports = {
 	get,
 	save,
+	remove,
 	prune
 };

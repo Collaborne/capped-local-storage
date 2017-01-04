@@ -11,6 +11,8 @@ npm install capped-local-storage --save
 
 Check the included [demo](https://github.com/Collaborne/capped-local-storage/blob/master/demo.html).
 
+### Prune old values
+
 ```javascript
 var storage = require('capped-local-storage');
 
@@ -18,7 +20,7 @@ var key = 'FOO';
 var value = 'BAR';
 
 storage.save(key, value).then(function() {
-    console.log('Step 1: Successfully saved ' + key);
+    console.log('Step 1: Successfully saved ' + key + ' with value ' + value);
 }).then(function() {
     console.log('Step 2: Reading value for ' + key + '...');
     return storage.get(key);
@@ -27,6 +29,32 @@ storage.save(key, value).then(function() {
 }).then(function(readValue) {
     console.log('Step 4: Pruning all values...');
     return storage.prune([], 0);
+}).then(function() {
+    console.log('Step 5: Reading value for ' + key + '...');
+    return storage.get(key);
+}).then(function(readValue) {
+    console.log('Step 6: Got "' + readValue + '"');
+});
+```
+
+### Delete a value
+
+```javascript
+var storage = require('capped-local-storage');
+
+var key = 'FOO';
+var value = 'BAR';
+
+storage.save(key, value).then(function() {
+    console.log('Step 1: Successfully saved ' + key + ' with value ' + value);
+}).then(function() {
+    console.log('Step 2: Reading value for ' + key + '...');
+    return storage.get(key);
+}).then(function(readValue) {
+    console.log('Step 3: Got "' + readValue + '"');
+}).then(function(readValue) {
+    console.log('Step 4: Removing value...');
+    return storage.remove(key);
 }).then(function() {
     console.log('Step 5: Reading value for ' + key + '...');
     return storage.get(key);
