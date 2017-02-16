@@ -1,4 +1,6 @@
 # capped-local-storage
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Collaborne/capped-local-storage.svg)](https://greenkeeper.io/)
 Local storage access layer that allows to remove the oldest entries
 
 ## Install
