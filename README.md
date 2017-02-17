@@ -1,4 +1,5 @@
-# capped-local-storage [![Greenkeeper badge](https://badges.greenkeeper.io/Collaborne/capped-local-storage.svg)](https://greenkeeper.io/)
+# capped-local-storage [![Build Status](https://travis-ci.org/Collaborne/capped-local-storage.svg?branch=master)](https://travis-ci.org/Collaborne/capped-local-storage) [![Greenkeeper badge](https://badges.greenkeeper.io/Collaborne/capped-local-storage.svg)](https://greenkeeper.io/)
+
 Local storage access layer that allows to remove the oldest entries
 
 ## Install
